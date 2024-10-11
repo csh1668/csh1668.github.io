@@ -1,0 +1,101 @@
+@font-face {
+    font-family: 'neo';
+    src: url('NanumSquareNeo-bRg.ttf') format('truetype');
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: 'neo';
+    src: url('NanumSquareNeo-dEb.ttf') format('truetype');
+    font-weight: bold;
+}
+
+h1, h2, h3, h4, h5, h6 {font-weight: bold;}
+
+:root {
+    --primary-color: #489dff;
+    --primary-color-half: rgba(72, 157, 255, 0.5);
+    --secondary-color: #54f7d4;
+    --secondary-color-half: rgba(84, 247, 212, 0.5);
+    --tertiary-color: #f7d954;
+    --tertiary-color-half: rgba(247, 217, 84, 0.5);
+    --quaternary-color: #ff746f;
+    --quaternary-color-half: rgba(255, 88, 88, 0.5);
+    --purple: #9068ff;
+    --bg-primary: var(--primary-color);
+
+    --sm: 576px;
+    --md: 768px;
+    --lg: 992px;
+}
+
+html {
+    box-sizing: border-box;
+    height: 100%;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    align-items: center;
+    background: linear-gradient(320deg, var(--purple), var(--secondary-color));
+    display: flex;
+    font-family: 'neo';
+    justify-content: center;
+    height: 100vh;
+}
+
+.wrapper {
+    border-radius: 32px;
+    box-shadow: 0 4px 30px rgba(35, 35, 35, 0.5);
+    background-color: white;
+    overflow: hidden;
+
+    filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.2));
+}
+
+.form-control,
+.form-select{
+    font-size: 12px;
+    height: 30px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.form-check-input {
+    margin-right: 3px;
+}
+
+.simple { background-color: #ffe15e; }
+.schedule { background-color: #5adabe;}
+.assignment { background-color: #896adf;}
+.important { background-color: #dd5854;}
+
+.done { text-decoration: line-through; }
+
+.hover-pointer:hover { cursor: pointer; }
+
+/* sm 사이즈일때 */
+@media (max-width: 768px) {
+    .hide-lg {
+        display: inherit;
+    }
+}
+/* md 사이즈일때 */
+@media (min-width: 768px) {
+    .hide-lg {
+        display: inherit;
+    }
+}
+/* lg 사이즈일때 */
+@media (min-width: 992px) {
+    .hide-lg {
+        display: none;
+    }
+}

@@ -1,0 +1,158 @@
+@import url('style.css');
+
+.table-container {
+    margin-top: 1vh;
+    height: 87%;
+    margin-left: 1vw;
+    margin-right: 1vw;
+    padding: 15px;
+    /* box-shadow: 0 4px 10px rgba(35, 35, 35, 0.8); */
+}
+
+.table-wrapper {
+    height: 100%;
+    display: flex;
+    overflow-y: auto;
+}
+
+.table-wrapper > * {
+    border: 1px solid var(--secondary-color);
+    border-top: none;
+    border-right: none;
+    border-left: none;
+}
+
+.week-header-wrapper {
+    background-color: var(--secondary-color);
+    font-size: 16px;
+    /* margin: 0 -1vw 0 -1vw; */
+}
+
+.table-wrapper > .col-week {
+    padding: 0;
+    margin: 0;
+}
+
+.saturday { color: var(--primary-color); }
+.sunday { color: var(--quaternary-color); }
+.today { color: var(--tertiary-color); }
+
+.col-week {
+    overflow-y: auto;
+}
+
+.col-week > button {
+    border: none;
+    background-color: white;
+}
+
+.col-week > button > span:nth-child(1) {
+    /* color: black; */
+    /* font-size: 12px; */
+    font-weight: bold;
+}
+
+.col-week > button > span:nth-child(2) {
+    color: gray;
+    font-weight: bold;
+}
+
+.col-week > ul {
+    list-style-type: none;
+    padding-left: 0;
+    margin: 0;
+}
+.col-week > ul > li {
+    /* bootstrap 소스코드를 참고함 */
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+    /* background-color : #efffaa; */
+    color: white;
+}
+
+/* sm 사이즈일때 */
+@media (max-width: 768px) {
+    .col-week {
+        flex: 0 0 calc(100% / 2);
+        max-width: calc(100% / 2);
+    }
+    .week-header-wrapper {
+        display: none;
+    }
+    .col-week > ul > li {
+        /* display: inline; */
+    }
+    .table-container {
+        font-size: 12px;
+    }
+    .col-week > * {
+        font-size: 10px;
+        display: inline;
+    }
+    .col-week > button > span {
+        font-size: 11px;
+    }
+    .dummy {
+        display: none;
+    }
+    .sub {
+        display: inherit;
+    }
+}
+/* md 사이즈일때 */
+@media (min-width: 768px) {
+    .col-week {
+        flex: 0 0 calc(100% / 4);
+        max-width: calc(100% / 4);
+    }
+    .week-header-wrapper {
+        display: none;
+    }
+    .table-wrapper > .col-week {
+        min-height: 50px;
+    }
+    .col-week > ul > li {
+        display: inline;
+    }
+    .table-container {
+        font-size: 10px;
+    }
+    .col-week > button > span {
+        font-size: 13px;
+    }
+    .dummy {
+        display: none;
+    }
+    .sub {
+        display: inherit;
+    }
+}
+/* lg 사이즈일때 */
+@media (min-width: 992px) {
+    .col-week {
+        flex: 0 0 calc(100% / 7);
+        max-width: calc(100% / 7);
+    }
+    .table-wrapper > .col-week {
+        min-height: 100px;
+    }
+    .col-week > ul > li {
+        display: block;
+    }
+    .week-header-wrapper {
+        display: flex;
+    }
+    .table-container {
+        font-size: 10px;
+    }
+    .col-week > button > span {
+        font-size: 15px;
+    }
+    .dummy {
+        display: inherit;
+    }
+    .sub {
+        display: none;
+    }
+}

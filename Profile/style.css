@@ -1,0 +1,305 @@
+@font-face {
+    font-family: 'neo';
+    src: url('NanumSquareNeo-cBd.ttf') format('truetype');
+}
+
+:root {
+    --primary-color: #489dff;
+    --secondary-color: #54f7d4;
+    --tertiary-color: #f7d954;
+    --quaternary-color: #ff5858;
+    --quaternary-color-half: rgba(255, 88, 88, 0.5);
+    --blue: #9068ff;
+}
+
+
+html {
+    box-sizing: border-box;
+    height: 100%;
+}
+
+
+body {
+    align-items: center;
+    background: linear-gradient(320deg, var(--blue), var(--secondary-color));
+    display: flex;
+    font-family: 'neo';
+    justify-content: center;
+}
+
+p, div, h5 { font-size: 14px; }
+h1 { font-size: 24px; }
+h2 { font-size: 20px; }
+h3 { font-size: 16px; }
+
+.wrapper {
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(35, 35, 35, 0.8);
+    background-color: rgba(255, 255, 255, 1);
+    flex-basis: 700px;
+    height: 540px;
+    overflow: hidden;
+
+    -webkit-filter: drop-shadow(0px 0px 10px rgba(35, 35, 35, 0.1));
+    filter: drop-shadow(0px 0px 10px rgba(35, 35, 35, 0.1));
+}
+
+.upper-section {
+    height: 40%;
+    position: relative;
+}
+
+.submit-button {
+    margin: 5px;
+    padding: 2px 10px;
+    border-radius: 5px;
+    border: none;
+    background-color: var(--primary-color);
+    color: white;
+    font-family: 'neo';
+    cursor: pointer;
+    -webkit-filter: drop-shadow(0px 0px 5px var(--primary-color));
+    filter: drop-shadow(0px 0px 5px var(--primary-color));
+}
+
+.submit-button:hover {
+    background-color: var(--secondary-color);
+    -webkit-filter: drop-shadow(0px 0px 10px var(--secondary-color));
+    filter: drop-shadow(0px 0px 10px var(--secondary-color));
+}
+
+.submit-button:active {
+    background-color: var(--tertiary-color);
+    -webkit-filter: drop-shadow(0px 0px 10px var(--tertiary-color));
+    filter: drop-shadow(0px 0px 10px var(--tertiary-color));
+}
+
+
+.flip-button {
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    margin: 5px;
+    padding: 2px 10px;
+    border-radius: 5px;
+    border: none;
+    background-color: var(--primary-color);
+    color: white;
+    font-family: 'neo';
+    cursor: pointer;
+    -webkit-filter: drop-shadow(0px 0px 5px var(--primary-color));
+    filter: drop-shadow(0px 0px 5px var(--primary-color));
+}
+
+.flip-button:hover {
+    background-color: var(--secondary-color);
+    -webkit-filter: drop-shadow(0px 0px 10px var(--secondary-color));
+    filter: drop-shadow(0px 0px 10px var(--secondary-color));
+}
+
+.flip-button:active {
+    background-color: var(--tertiary-color);
+    -webkit-filter: drop-shadow(0px 0px 10px var(--tertiary-color));
+    filter: drop-shadow(0px 0px 10px var(--tertiary-color));
+}
+
+.background-picture {
+    background-image: url('coding-924920_1280.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 100%;
+    width: 100%;
+    filter: brightness(50%);
+}
+
+.middle-section {
+}
+
+.profile-section {
+    width: 30%;
+    position: relative;
+    left: 15%;
+    transform: translateX(-50%);
+}
+
+.profile-picture {
+    background-image: url('tjgus1668-picture-1726118508914.png');
+    background-size: cover;
+    background-position: center;
+    border-radius: 50%;
+    position: absolute;
+    height: 100px;
+    width: 100px;
+    top: -60px;
+    left: 50%;
+    transform: translateX(-50%);
+    -webkit-filter: drop-shadow(0px 0px 5px var(--quaternary-color-half));
+    filter: drop-shadow(0px 0px 5px var(--quaternary-color-half));
+}
+
+.profile-picture:hover {
+    -webkit-filter: drop-shadow(0px 0px 10px rgba(255, 88, 88, 0.8));
+    filter: drop-shadow(0px 0px 10px rgba(255, 88, 88, 0.8));
+    transition: filter 0.2s ease-in-out;
+}
+
+.links {
+    display: flex;
+    justify-content: end;
+    margin-top: 5px;
+}
+
+.left, .right {
+    height: 100%;
+}
+
+.left {
+    float: left;
+    background: linear-gradient(320deg, #5145ff, #54d1f7);
+    width: 30%;
+    margin-top: -8px;
+    padding-top: 23px;
+    color: white;
+}
+
+.right {
+    float: right;
+    /* background-color: #6ce4ac; */
+    width: 70%;
+    /* margin-top: 0px; */
+}
+
+.details {
+    margin: 5px 10px;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.myname {
+    font-size: 30px;
+    padding-top: 30px;
+}
+
+.myjob {
+    font-size: 14px;
+}
+
+.sep-line {
+    border-top: 1px solid;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.link-container {
+    justify-content: space-between;
+    margin-left: 10%;
+    font-size: 13.5px;
+}
+
+.link {
+    color: white;
+    text-decoration: none;
+}
+
+.font-small {
+    font-size: 11px;
+}
+
+.nested {
+    /* display: none; */
+    /* position: absolute; */
+    /* background-color: #6ce4ac; */
+    border-radius: 5px;
+    padding: 2px 10px;
+    z-index: 1;
+}
+
+.details {
+    /* color: white; */
+}
+
+.gray {
+    color: gray;
+}
+
+.pg {
+    margin-bottom: 10px;
+}
+
+.tech-stack {
+    .ui {
+        list-style-type: none;
+    }
+
+    .ui li::before {
+        content: none;
+    }
+}
+
+.back {
+    background-color: #ffffff;
+}
+
+.map {
+    width: 100%;
+    height: 100%;
+}
+
+.cur-pos {
+    position:relative; 
+    top: -22px; 
+    left: 10px;
+    width: fit-content;
+    height: auto;
+    background-color: var(--primary-color);
+    color: white;
+    padding: 2;
+    border-radius: 5px;
+    -webkit-filter: drop-shadow(0px 0px 5px var(--primary-color));
+    filter: drop-shadow(0px 0px 5px var(--primary-color));
+}
+
+.half {
+    width: 50%;
+}
+
+.class-schedule {
+    font-size: 12px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 10px 0;
+    border: 1px solid black;
+}
+th, td {
+    /* border: 1px solid black; */
+    padding: 4.5px;
+    /* text-align: center; */
+}
+th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+    font-size: 12px;
+}
+td {
+    vertical-align: middle;
+    font-size: 11px;
+}
+
+.b-red {background-color: rgb(255, 97, 97); }
+.b-yellow {background-color: rgb(255, 255, 97);}
+.b-green {background-color: rgb(97, 255, 97);}
+.b-blue {background-color: rgb(97, 97, 255); color: white;}
+.b-orange {background-color: rgb(255, 192, 97);}
+.b-purple {background-color: rgb(255, 97, 255); color: white;}
+.b-mint {background-color: rgb(97, 255, 255);}

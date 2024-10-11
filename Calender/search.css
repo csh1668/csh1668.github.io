@@ -1,0 +1,26 @@
+@import url('style.css');
+
+.todo-types-wrapper > * {
+    font-size: 14px;
+    margin-left: -2px;
+    /* 이유 모를 간격 안맞는 현상 해결 용 */
+}
+
+/* sm 사이즈일때 */
+@media (max-width: 768px) {
+    .todo-types-wrapper > * {
+        margin-right: 10px;
+    }
+}
+/* md 사이즈일때 */
+@media (min-width: 768px) {
+    .todo-types-wrapper > * {
+        margin-right: 10px;
+    }
+}
+/* lg 사이즈일때 */
+@media (min-width: 992px) {
+    .todo-types-wrapper > * {
+        margin-right: 0;
+    }
+}

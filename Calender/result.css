@@ -1,0 +1,102 @@
+@import url('style.css');
+
+.list-wrapper {
+    height: 100%;
+}
+
+.todolist {
+    height: 0%;
+}
+
+.todolist > ul,
+.donelist > ul {
+    /* background-color: red; */
+    margin: 0;
+    padding-left: 0px;
+}
+
+.todolist > ul > li,
+.donelist > ul > li {
+    list-style-type: none;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    margin-right: 5px;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    /* white-space:; */
+    /* overflow-y: auto; */
+}
+
+.todolist > ul > li::target-text,
+.donelist > ul > li::target-text {
+}
+
+.todolist > ul > li {
+    /* background-color : #88cf45; */
+}
+
+/* .donelist > ul >li {
+    background-color : #78e2f5;
+} */
+
+button.toggle-star {
+    background-color: transparent;
+    border: none;
+    color: white;
+    /* cursor: pointer; */
+}
+
+.todolist-checkbox {
+    flex: content;
+    margin-right: 15px;
+}
+
+/* sm 사이즈일때 */
+@media (max-width: 768px) {
+    .todolist,
+    .donelist {
+        width: 48%;
+        overflow-y: auto;
+        height: 60%;
+    }
+    .todolist {
+        float: left;
+    }
+    .donelist {
+        float: right;
+    }
+}
+/* md 사이즈일때 */
+@media (min-width: 768px) {
+    .todolist,
+    .donelist {
+        width: 49%;
+        overflow-y: auto;
+        height: 50%;
+        font-size: 13px;
+    }
+    .todolist {
+        float: left;
+    }
+    .donelist {
+        float: right;
+        text-align: left;
+    }
+}
+/* lg 사이즈일때 */
+@media (min-width: 992px) {
+    .todolist,
+    .donelist {
+        width: 100%;
+        overflow-y: auto;
+        font-size: 15px;
+        height: 40%;
+    }
+    .todolist {
+        float: none;
+    }
+    .donelist {
+        float: none;
+    }
+}

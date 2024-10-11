@@ -1,0 +1,186 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uragawa of SeoHyeon's Profile Page</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="wrapper back">
+        <section class="upper-section">
+            <iframe src="https://kko.to/qYmFWZIEMy" class="map"></iframe> 
+            <!-- https://kko.to/qYmFWZIEMy -->
+            <div class="cur-pos">당신의 현재 위치는...</div>
+            <button class="flip-button from-main" onclick="window.location.href='index.html'">앞면 보기</button>
+        <section class="lower-section">
+            <section class="half" style="float: left;">
+                <div class="class-schedule">
+                    <h2 class="text-center">수업 시간표</h2>
+                    <table>
+                        <!--조교님께.. colspan와 rowspan 둘 다 사용했습니다..-->
+                        <tr>
+                            <th>\</th>
+                            <th>월</th>
+                            <th>화</th>
+                            <th>수</th>
+                            <th>목</th>
+                            <th>금</th>
+                        </tr>
+                        <tr>
+                            <th rowspan="2">9</th>
+                            <td colspan="2"></td>
+                            <td class="b-red font-tiny" rowspan="3">공학논문작성과발표</td>
+                            <td colspan="2"></td>
+                        </tr>
+                        <tr>
+                            <td class="b-red font-tiny" rowspan="3">공학논문작성과발표</td>
+                            <td></td>
+                            <td colspan="2"></td>
+                        </tr>
+                        <tr>
+                            <th rowspan="2">10</th>
+                            <td></td>
+                            <td colspan="2"></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th rowspan="2">11</th>
+                            <td class="b-orange font-tiny" rowspan="2">컴퓨터구조</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="b-purple font-tiny" rowspan="4">객체지향설계</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th rowspan="2">12</th>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th rowspan="2">13</th>
+                            <td class="b-green font-tiny" rowspan="4">알고리즘</td>
+                            <td></td>
+                            <td></td>
+                            <td class="b-green font-tiny" rowspan="4">알고리즘</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th rowspan="2">14</th>
+                            <td></td>
+                            <td class="b-yellow font-tiny" rowspan="4">웹프로그래밍</td>
+                            <td class="b-yellow font-tiny" rowspan="4">웹프로그래밍</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th rowspan="2">15</th>
+                            <td></td>
+                            <td class="b-orange font-tiny" rowspan="4">컴퓨터구조</td>
+                            <td class="b-purple font-tiny" rowspan="4">객체지향설계</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th rowspan="2">16</th>
+                            <td></td>
+                            <td class="b-mint font-tiny" rowspan="4">수치프로그래밍</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th rowspan="2">17</th>
+                            <td class="b-mint font-tiny" rowspan="4">수치프로그래밍</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th rowspan="2">18</th>
+                            <td class="b-blue font-tiny" rowspan="4">기초프로젝트랩</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th rowspan="2">19</th>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+
+                        
+                    </table>
+                </div>
+            </section>
+            <section class="half" style="float:right;">
+                <h2 class="text-center">DM 보내기</h2>
+                <h3 class="text-center">저에게 연락해주세요!</h3>
+                <form>
+                    <label for="name">전화번호:</label>
+                    <input type="range" id="name" name="name" min="0" max="99999999" step="1" onchange="document.getElementById('rangeValue').textContent = '010-' + String(this.value).substring(0, 4) + '-' + String(this.value).substring(4, 8);">
+                    <span id="rangeValue">010-5000-0000</span><br>
+                    <label for="content">내용:</label><br>
+                    <textarea id="content" name="content" rows="4" cols="45"></textarea><br>
+                    <label for="password">로봇인가요?:</label>
+                    <input type="checkbox" id="password" name="password">저는 로봇이 아닙니다<br>
+
+                    <input type="submit" value="제출" class="submit-button" onclick="event.preventDefault();
+                    var name = document.getElementById('name').value;
+                    name = '010-' + String(name).substring(0, 4) + '-' + String(name).substring(4, 8);
+                    var content = document.getElementById('content').value;
+                    var isbot = document.getElementById('password').checked;
+                    document.getElementById('input-res').textContent = '보내졌습니다! 제출 내용: \n' + name + '\n' + content + '\n' + (isbot ? ('로봇이 아닙니다') : ('로봇입니다.'))">
+                </form>
+
+                <div id="input-res"></div>
+            </section>
+        </section>
+    </div>
+</body>
+</html>
