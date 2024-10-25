@@ -10,7 +10,7 @@ function planHandler() {
         for (let j = 0; j < 32; j++) {
             this.plans[i][j] = [];
         }
-    }
+    };
 
     this.findPlan = (id) => {
         for (let i = 0; i < 13; i++) {
@@ -22,22 +22,13 @@ function planHandler() {
                 }
             }
         }
-    }
-
-    this.cancelModal = () => {
-        let modal = document.getElementById("mymodal");
-        modal.style.display = "none";
     };
 
-    this.cancelModalReadonly = () => {
-        let modal = document.getElementById("mymodal-readonly");
-        modal.style.display = "none";
-    }
+    this.cancelModal = () => { let modal = document.getElementById("mymodal"); modal.style.display = "none"; };
 
-    this.saveToLocalStorage = () => {
-        localStorage.setItem("plans", JSON.stringify(this.plans));
-        localStorage.setItem("plan_cnt", this.plan_cnt);
-    }
+    this.cancelModalReadonly = () => { let modal = document.getElementById("mymodal-readonly"); modal.style.display = "none"; };
+
+    this.saveToLocalStorage = () => { localStorage.setItem("plans", JSON.stringify(this.plans)); localStorage.setItem("plan_cnt", this.plan_cnt); };
 
     this.loadFromLocalStorage = () => {
         let plansLocal = localStorage.getItem("plans");
@@ -91,9 +82,8 @@ function planHandler() {
         return plan;
     }
 
-    this.editPlan = () => {
-        let planId = document.getElementById("mymodal-id").innerText;
-        let plan = this.popPlan(parseInt(planId));
+    this.editPlan = (id) => {
+        let plan = this.popPlan(parseInt(id));
 
         let planTitle = document.getElementById("plan-title").value;
         let planDesc = document.getElementById("plan-desc").value;
@@ -504,7 +494,8 @@ document.getElementById("add-plan").addEventListener("click", (e) => {
     plan.cancelModal();
 });
 document.getElementById("edit-plan").addEventListener("click", (e) => {
-    plan.editPlan();
+    let planId = document.getElementById("mymodal-id").innerText;
+    plan.editPlan(planId);
     plan.cancelModal();
 });
 document.getElementById("done-button").addEventListener("click", plan.moveToDoneList);

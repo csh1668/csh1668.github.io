@@ -1,0 +1,123 @@
+@font-face {
+    font-family: 'neo';
+    src: url('NanumSquareNeo-bRg.ttf') format('truetype');
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: 'neo';
+    src: url('NanumSquareNeo-dEb.ttf') format('truetype');
+    font-weight: bold;
+}
+
+h1, h2, h3, h4, h5, h6 {font-weight: bold;}
+
+:root {
+    --primary-color: #489dff;
+    --primary-color-half: rgba(72, 157, 255, 0.5);
+    --secondary-color: #54f7d4;
+    --secondary-color-half: rgba(84, 247, 212, 0.5);
+    --tertiary-color: #f7d954;
+    --tertiary-color-half: rgba(247, 217, 84, 0.5);
+    --quaternary-color: #ff746f;
+    --quaternary-color-half: rgba(255, 88, 88, 0.5);
+    --purple: #9068ff;
+    --bg-primary: var(--primary-color);
+
+    --sm: 576px;
+    --md: 768px;
+    --lg: 992px;
+}
+
+html {
+    box-sizing: border-box;
+    height: 100%;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+}
+
+button, input {
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    background-color: white;
+
+    font: inherit;
+    margin-left: 10px;
+    height: 23px;
+}
+
+button:hover, input:hover {
+    background-color: #f0f0f0;
+}
+
+button:active, input:active {
+    background-color: #e0e0e0;
+}
+
+body {
+    align-items: center;
+    background: linear-gradient(320deg, var(--purple), var(--secondary-color));
+    display: flex;
+    font-family: 'neo';
+    justify-content: center;
+    height: 100%;
+}
+
+.wrapper {
+    border-radius: 32px;
+    box-shadow: 0 4px 30px rgba(35, 35, 35, 0.5);
+    background-color: white;
+    overflow: hidden;
+
+    filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.2));
+    height: 80%;
+    width: 80%;
+}
+
+.canvas-wrapper {
+    height: 90%;
+    width: 100%;
+}
+
+.control-wrapper {
+    position: relative;
+    height: 100%;
+    width: 100%;
+
+    background-color: var(--secondary-color);
+
+    display: flex;
+    padding: 20px;
+    justify-content: center;
+}
+
+.shape-circle { border-radius: 50%; }
+.shape-pentagon {
+    clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
+}
+.shape-diamond {
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+}
+
+
+
+#video {
+    overflow: hidden;
+    position: absolute;
+    height: 300px;
+    width: 300px;
+}
+
+#text-display {
+    overflow: visible;
+    position: absolute;
+    top: 50vh;
+    left: 50vw;
+}
