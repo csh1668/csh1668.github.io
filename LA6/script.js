@@ -4,11 +4,14 @@ const ctx = canvas.getContext('2d');
 const video = document.getElementById('video');
 const textInput = document.getElementById('my-text');
 const stopButton = document.getElementById('stop-button');
+const speedRange = document.getElementById('speed-range');
+const speedShow = document.getElementById('speed-show');
 
 let mouseClickCount = -1;
 let animationId = null;
 let playing = false;
 let videoX = 0, videoY = 0, textX = 0;
+let speed = 1;
 
 function startAnimation() {
     ctx.save();
@@ -46,8 +49,8 @@ function startAnimation() {
         animationId = requestAnimationFrame(animateVideo);
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         startAnimation();
-        videoX += 1;
-        textX += 1;
+        videoX += speed;
+        textX += speed;
 
         if (videoX > canvas.width) {
             cancelAnimationFrame(animationId);
@@ -88,4 +91,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
 stopButton.addEventListener('click', () => {
     stopAnimation();
+});
+
+speedRange.addEventListener('input', (event) => {
+    speed = parseFloat(event.target.value);
+    speedShow.innerText = speed.toFixed(1);
 });
