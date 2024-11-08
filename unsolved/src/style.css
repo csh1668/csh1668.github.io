@@ -1,0 +1,25 @@
+:root {
+    --primary-color: #c3dfff;
+    --text-basic-color: #5e5e5e;
+    --text-highlight-color: #59a7ff;
+}
+
+.primary-color {
+    background-color: var(--primary-color);
+}
+
+.text-basic-color {
+    color: var(--text-basic-color) !important;
+}
+
+.thin {
+    font-family: 'neo-light';
+}
+
+.text-highlight-color {
+    color: var(--text-highlight-color) !important;
+}
+
+.box-shadow {
+    box-shadow: 0 3px 5px rgba(35, 35, 35, 0.1);
+}
