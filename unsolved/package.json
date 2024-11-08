@@ -23,6 +23,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
+  "homepage": "https://csh1668.github.io/Unsolved-Build/",
   "eslintConfig": {
     "extends": [
       "react-app",

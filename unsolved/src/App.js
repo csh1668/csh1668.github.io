@@ -11,7 +11,7 @@ import Community from './Components/Community';
 function App() {
   return (
     <div className="App">
-      <BrowserRouter>
+      <BrowserRouter basename={process.env.PUBLIC_URL}>
         <Container fluid className='g-0'>
           <Row className='g-0'>
             <MySidebar />
