@@ -1,5 +1,6 @@
 $theme-colors: (
     'primary': #8bc5ff,
+    '--bs-pagination-active-bg': #8bc5ff,
 );
 
 @use "~bootstrap/scss/bootstrap";

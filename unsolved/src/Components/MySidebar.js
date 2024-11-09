@@ -14,7 +14,7 @@ export default function MySidebar() {
                 </div>
                 <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-start" id="menu">
                     <LinkElement to='/' icon='house' text='Home' />
-                    <LinkElement to='/problems' icon='list-check' text='Problems' />
+                    <LinkElement to='/problems' icon='list-check' text='Unsolved Problems' />
                     <LinkElement to='/community' icon='chat-dots' text='Community' />
                 </ul>
             </div>

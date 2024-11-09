@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/Unsolved-Build/static/css/main.21951fe8.css",
-    "main.js": "/Unsolved-Build/static/js/main.2af3d026.js",
+    "main.css": "/Unsolved-Build/static/css/main.2d99e386.css",
+    "main.js": "/Unsolved-Build/static/js/main.a0cf1172.js",
     "static/js/453.587fbb82.chunk.js": "/Unsolved-Build/static/js/453.587fbb82.chunk.js",
     "static/media/NanumSquareNeo-bRg.ttf": "/Unsolved-Build/static/media/NanumSquareNeo-bRg.5076032d79b49a26baa2.ttf",
     "static/media/NanumSquareNeo-dEb.ttf": "/Unsolved-Build/static/media/NanumSquareNeo-dEb.4faa8cb4c1d276609ee8.ttf",
     "static/media/bootstrap-icons.woff?": "/Unsolved-Build/static/media/bootstrap-icons.39795c0b4513de014cf8.woff",
     "static/media/bootstrap-icons.woff2?": "/Unsolved-Build/static/media/bootstrap-icons.b7bcc075b395c14ce8c2.woff2",
     "index.html": "/Unsolved-Build/index.html",
-    "main.21951fe8.css.map": "/Unsolved-Build/static/css/main.21951fe8.css.map",
-    "main.2af3d026.js.map": "/Unsolved-Build/static/js/main.2af3d026.js.map",
+    "main.2d99e386.css.map": "/Unsolved-Build/static/css/main.2d99e386.css.map",
+    "main.a0cf1172.js.map": "/Unsolved-Build/static/js/main.a0cf1172.js.map",
     "453.587fbb82.chunk.js.map": "/Unsolved-Build/static/js/453.587fbb82.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.21951fe8.css",
-    "static/js/main.2af3d026.js"
+    "static/css/main.2d99e386.css",
+    "static/js/main.a0cf1172.js"
   ]
 }

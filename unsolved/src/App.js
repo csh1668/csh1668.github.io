@@ -1,5 +1,4 @@
 import './App.scss';
-import './App.css';
 import { Button, Col, Container, Row } from 'react-bootstrap';
 import MySidebar from './Components/MySidebar';
 import MyNavbar from './Components/MyNavbar';

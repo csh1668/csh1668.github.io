@@ -2,6 +2,7 @@
     --primary-color: #c3dfff;
     --text-basic-color: #5e5e5e;
     --text-highlight-color: #59a7ff;
+    --bg-gray-color: #f7f7f7;
 }
 
 .primary-color {
@@ -10,6 +11,14 @@
 
 .text-basic-color {
     color: var(--text-basic-color) !important;
+}
+
+.bg-gray-color {
+    background-color: var(--bg-gray-color);
+}
+
+.bg-white-color {
+    background-color: #fff !important;
 }
 
 .thin {
