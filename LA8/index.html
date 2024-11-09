@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SeoHyeon's LA 8</title>
+
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container text-center wrapper">
+        <div class="row">
+            <div class="col-12">
+                <h1 class="m-3">일정 정보 저장 페이지</h1>
+                <form action="#" method="post" class="form-inline needs-validation" id="my-form" novalidate>
+                    <div class="form-group row m-3">
+                        <label for="title" class="form-label">일정 제목: </label>
+                        <input type="text" class="form-control" id="title" name="title" required>
+                        <div class="invalid-feedback">제목을 입력해주세요.</div>
+                    </div>
+                    <div class="form-group row m-3" >
+                        <label for="friends" class="form-label">친구 정보: </label>
+                        <input type="text" class="form-control friend" id="friend1" name="friend1">
+                        <div>
+                            <button type="button" class="btn btn-primary" id="add-friend">추가</button>
+                            <button type="button" class="btn btn-danger" id="remove-friend">삭제</button>
+                        </div>
+                    </div>
+                    <div class="form-group row m-3">
+                        <label for="date" class="form-label">날짜: </label>
+                        <input type="date" class="form-control" id="date" name="date" required>
+                        <div class="invalid-feedback">날짜를 입력해주세요.</div>
+                        <label for="time">시간: </label>
+                        <input type="time" class="form-control" id="time" name="time" required>
+                        <div class="invalid-feedback">시간을 입력해주세요.</div>
+                    </div>
+                    <div class="form-group row m-3">
+                        <label for="detail" class="form-label">설명: </label>
+                        <textarea class="form-control" id="detail" name="detail"></textarea>
+                    </div>
+                    <div class="form-group row m-3">
+                        <label for="category" class="form-label">카테고리: </label>
+                        <select class="form-control" id="category" name="category" required>
+                            <option value="1">친구</option>
+                            <option value="2">가족</option>
+                            <option value="3">업무</option>
+                            <option value="4">기타</option>
+                        </select>
+                    </div>
+                    <div class="form-group row m-3">
+                        <label for="file" class="form-label">파일: </label>
+                        <input type="file" class="form-control" id="file" name="file">
+                    </div>
+                    <div class="form-group row m-3 mt-5">
+                        <button type="submit" class="btn btn-primary">저장</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="bootstrap.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
