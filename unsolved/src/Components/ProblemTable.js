@@ -6,7 +6,7 @@ export default function ProblemTable(props) {
     const problems = props.problems;
 
     return (
-        <Table striped bordered hover className="text-basic-color">
+        <Table striped bordered hover className="text-basic-color box-shadow">
             <thead>
                 <tr>
                     {headers.map((header) => {

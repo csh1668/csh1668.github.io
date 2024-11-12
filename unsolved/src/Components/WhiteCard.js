@@ -10,11 +10,12 @@ import { Card } from "react-bootstrap";
  */
 export default function WhiteCard(props) {
     return (
-        <Card className="m-2 text-basic-color" bg="light">
+        <Card className="m-2 text-basic-color box-shadow" bg="light" >
+            {props.title ? 
             <Card.Header className="bg-white-color">
                 {props.icon ? <i className={`bi bi-${props.icon} float-start fs-3`}></i> : null}
                 <span><h3>{props.title}</h3></span>
-            </Card.Header>
+            </Card.Header> : null}
             <Card.Body className="bg-white-color">
                 {props.children}
             </Card.Body>
