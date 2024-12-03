@@ -18,6 +18,8 @@
     "react-router-dom": "^6.28.0",
     "react-scripts": "5.0.1",
     "rehype-highlight": "^7.0.1",
+    "rehype-katex": "^7.0.1",
+    "remark-math": "^6.0.0",
     "sass": "^1.80.6",
     "scss": "^0.2.4",
     "web-vitals": "^2.1.4"

@@ -1,0 +1,45 @@
+@import url('style.css');
+
+.section-search,
+.section-calendar,
+.section-result {
+    height: 80vh;
+}
+
+.section-search { background-color: #47cef7; }
+.section-result { background-color: #47cef7; }
+
+/* sm 사이즈일때 */
+@media (max-width: 768px) {
+    .section-search {
+        height: 15vh;
+    }
+    .section-result {
+        height: 30vh;
+    }
+    .section-calendar {
+        height: 53vh;
+    }
+}
+/* md 사이즈일때 */
+@media (min-width: 768px) {
+    .section-search,
+    .section-result {
+        height: 25vh;
+    }
+    .section-calendar {
+        height: 60vh;
+        overflow-y: auto;
+    }
+}
+/* lg 사이즈일때 */
+@media (min-width: 992px) {
+    .section-search,
+    .section-calendar,
+    .section-result {
+        height: 70vh;
+    }
+    .section-calendar {
+        overflow-y: auto;
+    }
+}

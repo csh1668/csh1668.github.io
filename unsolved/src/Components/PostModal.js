@@ -1,18 +1,51 @@
-import { Col, Container, Modal, Row } from "react-bootstrap";
+import { Col, Container, Form, FormGroup, Modal, Row } from "react-bootstrap";
 import UserElement from "./UserElement";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import WhiteCard from "./WhiteCard";
 import Markdown from "react-markdown";
 import rehypeHighlight from "rehype-highlight";
 import "highlight.js/styles/github.css";
+import api from "../ApiHandler";
+import Formmated from "./Formmated";
 
+/**
+ * 게시글을 상세하게 보여주는 Modal
+ */
 export default function PostModal(props) {
+    const handleSearch = props.handleSearch;
+
     const [post, setPost] = useState({
-        id: 1,
-        title: "Dummy Title",
-        author: {id: 1, name: "tjgus1668", level: 25},
-        date: (new Date()).toLocaleString(),
+        postId: -1,
+        title: '',
+        content: '',
+        author: '',
+        viewCount: -1,
+        likeCount: -1,
+        comments: [],
+        createdAt: ''
     });
+
+    const handleLoad = async () => { // 게시글 정보를 불러오는 함수
+        return await api.requestPost(props.postId).then(setPost);
+    };
+    const handleLike = () => { // 게시글을 추천하는 함수
+        alert("추천하였습니다.");
+        api.likePost(props.postId).then(() => {
+            handleLoad();
+        });
+    };
+    const handleDelete = () => { // 게시글을 삭제하는 함수
+        if (window.confirm("정말 삭제하시겠습니까?")) {
+            api.deletePost(props.postId).then(() => {
+                props.onClose();
+                handleSearch();
+            });
+        }
+    };
+    
+    useEffect(() => {
+        handleLoad();
+    }, [props.postId]);
 
     return (
         <>
@@ -22,18 +55,28 @@ export default function PostModal(props) {
                     <Container className="w-100">
                         <Row>
                             <Col>
-                            {post.id}: {post.title}
+                            {post.postId}: {post.title}
                             </Col>
                             <Col>
-                            <span className="float-end me-3 justify-contents-bottom" style={{fontSize: 16}}>{post.date}</span>
+                            <span className="float-end me-3 justify-contents-bottom" style={{fontSize: 16}}>
+                                {post.createdAt}</span>
                             </Col>
                         </Row>
                         <Row style={{fontSize: 16}}>
                             <Col>
-                            <UserElement user={post.author} size={16} />
+                            {/* <UserElement user={post.author} size={16} /> */}
+                            <span>{post.author}</span>
+                            <span className="ms-2">
+                                {/* <i className="bi bi-pencil-fill pointer" onClick={handleLike}></i> */}
+                                {api.userId === post.author && <i className="bi bi-trash-fill pointer" onClick={handleDelete}></i>}
+                            </span>
                             </Col>
                             <Col>
-                            <span className="float-end me-3">조회수: 0</span>
+                            <span className="float-end me-3">
+                                <i className="bi bi-hand-thumbs-up-fill pointer" onClick={handleLike}></i>
+                                <span className="me-3">{post.likeCount}</span>
+                                조회수: {post.viewCount}
+                            </span>
                             </Col>
                         </Row>
                     </Container>
@@ -42,16 +85,16 @@ export default function PostModal(props) {
 
             <Modal.Body className="bg-gray-color text-center">
                 <Container style={{
-                    height: "60vh", overflowY: "auto"
+                    height: "80vh", overflowY: "auto"
                 }}>
                     <Row>
                         <Col className="d-flex justify-content-center">
-                            <PostContents />
+                            <PostContents content={post.content} />
                         </Col>
                     </Row>
                     <Row>
                         <Col className="d-flex justify-content-center">
-                            <CommentContents />
+                            <CommentContents comments={post.comments} postId={post.postId} handleLoad={handleLoad} />
                         </Col>
                     </Row>
                 </Container>
@@ -61,72 +104,18 @@ export default function PostModal(props) {
     );
 }
 
+/**
+ * 게시글 내용을 보여주는 WhiteCard
+ */
 function PostContents(props) {
-    const content = `
-## 마크다운 테스트
-이 글은 **마크다운**으로 \`작성\`되었습니다.
-
-링크 테스트 [#](https://velog.io/@tjgus1668/%EB%B0%B1%EC%A4%80-13927-%EC%88%98%EC%97%B4%EA%B3%BC-%EC%BF%BC%EB%A6%AC-14)
-
-#### 리스트
-1. 첫 번째
-2. 두 번째
-3. 세 번째
-
-#### 코드 테스트
-Python 테스트
-\`\`\`python
-import sys
-from collections import deque
-
-N = int(sys.stdin.readline())
-q = deque()
-while 1:
-    x = int(sys.stdin.readline())
-    if x == -1: break
-    elif x == 0: q.popleft()
-    else:
-        if len(q) < N: q.append(x)
-
-print(*q if q else 'empty')
-\`\`\`
-
-C++ 테스트
-\`\`\`cpp
-#include <bits/stdc++.h>
-#include <ext/rope>
-
-using namespace std;
-using namespace __gnu_cxx;
-
-int main(){
-    ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);
-
-    int n, q; cin >> n >> q;
-    string s; cin >> s;
-    rope<char> rp(s.c_str());
-
-    while (q--){
-        int op; cin >> op;
-        if (op == 1){
-            char c; int i; cin >> c >> i; i--;
-            rp.insert(i, c);
-        } else {
-            int l, r; cin >> l >> r; l--, r--;
-            cout << rp.substr(l, r - l + 1) << '\n';
-            rp.erase(l, r - l + 1);
-        }
-    }
-}
-\`\`\`
-  `;
+    const content = props.content;
 
     return (
         <div style={{width: "60%"}}>
             <WhiteCard>
                 <Container>
                     <div className="text-start">
-                    <Markdown rehypePlugins={rehypeHighlight}>{content}</Markdown>
+                    <Formmated>{content}</Formmated>
                     </div>
                 </Container>
             </WhiteCard>
@@ -134,30 +123,50 @@ int main(){
     )
 }
 
+/**
+ * 댓글을 보여주는 WhiteCard
+ */
 function CommentContents(props) {
-    const comments = [
-        {
-            id: 1, author: {id: 1, name: "tjgus1668", level: 25}, date: (new Date()).toLocaleString(),
-            content: "댓글 테스트입니다."
-        },
-        {
-            id: 2, author: {id: 2, name: "brian951862", level: 15}, date: (new Date()).toLocaleString(),
-            content: "ㅁㄴㅇㅁㄴㅇㅁㄴㅇㅁㄴㅇ"
-        }
-    ]
+    const comments = props.comments;
+    const postId = props.postId;
+    const handleLoad = props.handleLoad;
+
+    const [commentValue, setCommentValue] = useState('');
+
+    const handleAddComment = () => { // 댓글을 추가하는 함수
+        api.addComment(postId, commentValue).then(() => {
+            handleLoad();
+            setCommentValue('');
+        });
+    };
 
     return (
         <div style={{width: "60%"}}>
-            <WhiteCard title="댓글">
+            <WhiteCard title={`댓글 (${comments.length})`}>
                 <Container>
+                    {api.isLoggedIn() && // 로그인 상태일 때만 댓글 작성 가능
+                    <>
+                    <Row>
+                        <Col lg={10}>
+                        <Form.Control as="textarea" placeholder="댓글을 입력하세요." value={commentValue} onChange={(e) => setCommentValue(e.target.value)} />
+                        </Col>
+                        <Col lg={2} className="d-flex justify-content-center m-0 fluid">
+                        <button onClick={handleAddComment}>작성</button>
+                        </Col>
+                    </Row>
+                    <hr className="hr" /></>}
+
                     <div className="text-start">
-                    {comments.map((comment) => {
+                    {comments.map((comment) => { // 댓글들을 표시
                         return (
-                            <div key={comment.id}>
-                                <span><UserElement user={comment.author} size={16} /><span className="float-end ms-3">{comment.date}</span></span>
-                                <div>{comment.content}</div>
-                                <hr className="hr" />
+                            <>
+                            <div key={comment.commentId} style={{backgroundColor: "#f7f7f7"}}>
+                                <span ><span>{comment.author}</span><span className="float-end ms-3">{comment.createdAt}</span></span>
+                                
                             </div>
+                            <div>{comment.content}</div>
+                            <hr className="hr" />
+                            </>
                         )
                     })}
                     </div>
@@ -166,3 +175,5 @@ function CommentContents(props) {
         </div>
     )
 }
+
+// function CommentEnter

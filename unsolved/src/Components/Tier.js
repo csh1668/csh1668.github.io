@@ -1,5 +1,5 @@
 /**
- * 
+ *  티어 이미지를 렌더링하는 컴포넌트
  * @param {*} props 
  * @param {*} props.level 0 ~ 30
  * @param {*} props.size

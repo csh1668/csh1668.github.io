@@ -25,7 +25,7 @@ function planHandler() {
     };
 
     this.cancelModal = () => { let modal = document.getElementById("mymodal"); modal.style.display = "none"; };
-    mymodal-readonly
+
     this.cancelModalReadonly = () => { let modal = document.getElementById("mymodal-readonly"); modal.style.display = "none"; };
 
     this.saveToLocalStorage = () => { localStorage.setItem("plans", JSON.stringify(this.plans)); localStorage.setItem("plan_cnt", this.plan_cnt); };

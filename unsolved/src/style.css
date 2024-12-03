@@ -3,6 +3,7 @@
     --text-basic-color: #5e5e5e;
     --text-highlight-color: #59a7ff;
     --bg-gray-color: #f7f7f7;
+    --primary-color-hover: #b3ceff;
 }
 
 .primary-color {
@@ -21,6 +22,10 @@
     background-color: #fff !important;
 }
 
+.neo {
+    font-family: 'neo';
+}
+
 .thin {
     font-family: 'neo-light';
 }
@@ -31,4 +36,22 @@
 
 .box-shadow {
     box-shadow: 0 3px 5px rgba(35, 35, 35, 0.1);
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.link-element {
+    border-radius: 5px;
+}
+
+.link-element:hover {
+    background-color: var(--primary-color-hover);
+    transition: background-color 0.5s ease, transform 0.5s ease;
+    transform: translateY(-5px);
+}
+
+p {
+    margin: 0 !important;
 }

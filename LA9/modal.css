@@ -1,0 +1,22 @@
+@import url('style.css');
+
+.mymodal {
+    position: fixed;
+    width: calc(min(max(50vw, 160px), 320px));
+    height: 40vh;
+    padding: 10px;
+    border-radius: 16px;
+    background-color: rgba(84, 247, 212, 0.9);
+    box-shadow: 0 4px 30px rgba(35, 35, 35, 0.5);
+    filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.2));
+    overflow: auto;
+
+    display: none;
+}
+.input-group {
+    display: flex;
+    align-items: center; /* 수직 중앙 정렬 */
+}
+.desc-text-box {
+    height: 100%;
+}
