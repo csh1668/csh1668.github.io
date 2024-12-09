@@ -56,8 +56,10 @@ export default function Problems() {
                 api.requestProblemSearch(page, searchKeyword, levelStart, levelEnd, isAsc, "$onlyOneUser", sort).then(handleSave);
                 break;
             case 4: // 4: 충남대에서 나만 푼 문제
-                api.requestProblemSearch(page, searchKeyword, levelStart, levelEnd, isAsc, "$onlyMe", sort).then(handleSave);
+                api.requestProblemSearch(page, searchKeyword, levelStart, levelEnd, isAsc, "$onlyOneUser_", sort).then(handleSave);
                 break;
+            case 5: // 5: 충남대에서 나만 못 푼 문제
+                api.requestProblemSearch(page, searchKeyword, levelStart, levelEnd, isAsc, "$notMe_", sort).then(handleSave);
             default:
                 console.error("Invalid filter type");
                 break;
@@ -114,7 +116,8 @@ function Filters(props) {
         {id: 1, name: "전체", selected: filter === 1},
         {id: 2, name: "충남대 학생들이 풀지 못한 문제", selected: filter === 2},
         {id: 3, name: "단 한 명의 충남대 학생이 푼 문제", selected: filter === 3},
-        {id: 4, name: "충남대에서 나만 푼 문제", selected: filter === 4},
+        {id: 4, name: "충남대에서 나만 푼 문제", selected: filter === 4, loginRequired: true},
+        {id: 5, name: "충남대에서 내가 못 푼 문제", selected: filter === 5, loginRequired: true},
     ];
 
     const displayDiff = () => {
@@ -170,7 +173,10 @@ function Filters(props) {
                         }
                     }>
                         {filters.map((filter) => {
-                            return <option value={filter.id} selected={filter.selected}>{filter.name}</option>
+                            if (filter.loginRequired && !api.isLoggedIn()) 
+                                return <option value={filter.id} disabled>{filter.name} (로그인 필요)</option>
+                            else
+                                return <option value={filter.id} selected={filter.selected}>{filter.name}</option>
                         })}
                     </Form.Select>
                 </Form.Group>

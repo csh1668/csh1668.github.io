@@ -119,8 +119,10 @@ function SchoolInfomation(props) {
     ]);
     const [totalCnt, setTotalCnt] = useState(0);
     const [page, setPage] = useState(0);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => { // 최초 렌더링 시 이 문제를 푼 학생 정보를 불러옴
+        setLoading(true);
         api.requestProblemUsers(props.problemId).then((data) => {
             let cnt = 0;
             setStudents(data.users.map((student) => {
@@ -131,6 +133,7 @@ function SchoolInfomation(props) {
                 }
             }));
             setTotalCnt(data.totalCnt);
+            setLoading(false);
         });
     }, []);
 
@@ -168,7 +171,9 @@ function SchoolInfomation(props) {
                             <UserElement user={student} />
                         )
                     }
-                    ) : <tr><td>이 문제를 푼 충남대생이 없습니다.</td></tr>}
+                    ) : (
+                        <tr><td>{loading ? "로딩 중..." : "아직 이 문제를 푼 충남대생이 없습니다."}</td></tr>
+                    )}
                     {students.length < totalCnt && <tr><td onClick={handleLoadMore} className="pointer">더 불러오기</td></tr>}
                 </tbody>
             </Table>

@@ -10,7 +10,7 @@ class ApiHandler {
 
         this.userId = localStorage.getItem('userId') || null;
         this.baseUrl = 'http://localhost:8080/';
-        // this.baseUrl = 'https://2129-121-183-216-65.ngrok-free.app/';
+        // this.baseUrl = 'https://afa0-121-183-216-65.ngrok-free.app/';
 
         ApiHandler.instance = this;
     }
@@ -116,8 +116,8 @@ class ApiHandler {
      * 문제 검색 결과 요청
      */
     async requestProblemSearch(page, kw, levelStart, levelEnd, isAsc, userId, sort) {
-        if (userId === "$onlyMe") {
-            userId = "$onlyOneUser_" + this.userId;
+        if (userId === "$onlyOneUser_" || userId === "$notMe_") {
+            userId = userId + this.userId;
         }
 
         kw = kw.replaceAll("#", "%23");

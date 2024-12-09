@@ -55,7 +55,8 @@ function DailyStatus() {
         });
         api.requestSolvingStatus().then((data) => {
             setTotalCnt(data.total);
-        })
+        });
+
     }, []);
 
     return (
@@ -142,6 +143,8 @@ function DailyStatusChart({ solvedCnt, totalCnt }) {
     };
 
     useEffect(() => {
+        if (solvedCnt === -1 || totalCnt === -1) return;
+
         const centerTextPlugin = {
             id: 'centerText',
             beforeDraw(chart) {
