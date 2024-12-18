@@ -209,6 +209,8 @@ function SearchSuggestions({ target, onClose }) {
                                 <div><span className="thin">문제 이름</span></div>
                                 <div><span className="thin">문제 번호</span></div>
                                 <div>#<span className="thin ms-2">알고리즘 태그</span></div>
+                                <div>$ko<span className="thin ms-2">한국어 문제만 표시 - 개발중</span></div>
+                                <div>$s<span className="thin ms-2">채점 가능한 문제만 표시 - 개발중</span></div>
                             </Col>
                         </Row>
                     </Container>

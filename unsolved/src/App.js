@@ -25,7 +25,7 @@ function App() {
                 <Routes>
                   <Route path='/' element={<Home />} /> {/* 메인 페이지 */}
                   <Route path='/problems' element={<Problems />} /> {/* 문제 페이지 */}
-                  <Route path='/community' element={<Community />} /> {/* 커뮤니티 페이지 */}
+                  {/* <Route path='/community' element={<Community />} /> */}
                 </Routes>
               </Col>
             </Row>

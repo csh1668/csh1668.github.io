@@ -9,8 +9,8 @@ class ApiHandler {
         }
 
         this.userId = localStorage.getItem('userId') || null;
-        this.baseUrl = 'http://localhost:8080/';
-        // this.baseUrl = 'https://afa0-121-183-216-65.ngrok-free.app/';
+        // this.baseUrl = 'http://localhost:8080/';
+        this.baseUrl = 'https://8fa3-121-183-216-65.ngrok-free.app/';
 
         ApiHandler.instance = this;
     }

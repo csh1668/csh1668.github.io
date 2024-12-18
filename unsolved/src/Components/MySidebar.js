@@ -20,7 +20,7 @@ export default function MySidebar() {
                 <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-start" id="menu">
                     <LinkElement to='/' icon='house' text='Home' /> {/* 메인 페이지로 가는 버튼 */}
                     <LinkElement to='/problems' icon='list-check' text='Unsolved Problems' /> {/* 문제 목록으로 가는 버튼 */}
-                    <LinkElement to='/community' icon='chat-dots' text='Community' /> {/* 커뮤니티로 가는 버튼 */}
+                    {/* <LinkElement to='/community' icon='chat-dots' text='Community' /> */}
                 </ul>
             </div>
         </div>
