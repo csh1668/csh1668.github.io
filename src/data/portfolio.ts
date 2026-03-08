@@ -54,8 +54,16 @@ export const projects = [
     `,
     stats: { type: "downloads" as "stars" | "downloads", count: 56000 },
     links: [
-      { href: "https://github.com/csh1668/AutoTranslation", icon: "Github" as const, label: "GitHub" },
-      { href: "https://steamcommunity.com/sharedfiles/filedetails/?l=koreana&id=3278005460", icon: "Globe" as const, label: "Demo" },
+      {
+        href: "https://github.com/csh1668/AutoTranslation",
+        icon: "Github" as const,
+        label: "GitHub",
+      },
+      {
+        href: "https://steamcommunity.com/sharedfiles/filedetails/?l=koreana&id=3278005460",
+        icon: "Globe" as const,
+        label: "Demo",
+      },
     ],
   },
 ];

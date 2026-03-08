@@ -17,8 +17,7 @@ const suite = localFont({
   src: "./SUITE-Variable.woff2",
   variable: "--font-suite",
   display: "swap",
-})
-
+});
 
 export const metadata: Metadata = {
   title: "조서현 포트폴리오",

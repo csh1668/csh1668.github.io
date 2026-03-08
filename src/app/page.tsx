@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { BackgroundGlow } from "@/components/background-glow";
 import { LucideIcon } from "@/components/lucide-icon";
 import { MdxContent } from "@/components/mdx-content";
@@ -7,7 +8,6 @@ import {
   projects,
   socialLinks,
 } from "@/data/portfolio";
-import Image from "next/image";
 
 export default function Home() {
   return (
@@ -46,8 +46,8 @@ export default function Home() {
             </p>
             <p>
               제가 개발한 프로그램으로 사람들이 도움받을 때 느끼는 기쁨은 제가
-              개발자로 사는 원동력입니다. 알고리즘 문제 해결과 웹 개발, 소프트웨어
-              개발에 관심이 많습니다.
+              개발자로 사는 원동력입니다. 알고리즘 문제 해결과 웹 개발,
+              소프트웨어 개발에 관심이 많습니다.
             </p>
           </div>
 
@@ -141,9 +141,7 @@ export default function Home() {
                   {proj.stats && (
                     <span className="flex items-center gap-1 text-base text-foreground/40">
                       <LucideIcon
-                        name={
-                          proj.stats.type === "stars" ? "Star" : "Download"
-                        }
+                        name={proj.stats.type === "stars" ? "Star" : "Download"}
                         className="h-4 w-4"
                       />
                       {proj.stats.count.toLocaleString()}
