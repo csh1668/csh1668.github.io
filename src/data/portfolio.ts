@@ -52,10 +52,10 @@ export const projects = [
 - 사용자는 번역이 완료되는 것을 기다릴 필요 없이, 게임을 플레이하며 실시간으로 번역이 적용되는 과정을 경험할 수 있음
 - 모드 설정 내 번역 편집기를 이용하여 번역 텍스트를 직접 수정할 수 있음
     `,
-    stats: { type: "downloads" as const, count: 56000 },
+    stats: { type: "downloads" as "stars" | "downloads", count: 56000 },
     links: [
-      { href: "https://github.com/csh1668/AutoTranslation", icon: "Github", label: "GitHub" },
-      { href: "https://steamcommunity.com/sharedfiles/filedetails/?l=koreana&id=3278005460", icon: "Globe", label: "Demo" },
+      { href: "https://github.com/csh1668/AutoTranslation", icon: "Github" as const, label: "GitHub" },
+      { href: "https://steamcommunity.com/sharedfiles/filedetails/?l=koreana&id=3278005460", icon: "Globe" as const, label: "Demo" },
     ],
   },
 ];

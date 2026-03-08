@@ -80,13 +80,13 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Scroll Indicator */}
+        {/* 스크롤 인디케이터 */}
         <div className="absolute bottom-10 flex flex-col items-center gap-2 text-foreground/30">
           <LucideIcon name="ArrowDown" className="h-4 w-4 animate-bounce" />
         </div>
       </section>
 
-      {/* Experience Section */}
+      {/* 경험 섹션 */}
       <section className="relative z-10 mx-auto max-w-3xl px-6 py-12">
         <h2 className="mb-8 text-2xl font-bold tracking-tight">경험</h2>
         <div className="space-y-10">
@@ -106,7 +106,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Projects Section */}
+      {/* 프로젝트 섹션 */}
       <section className="relative z-10 mx-auto max-w-3xl px-6 py-12">
         <h2 className="mb-8 text-2xl font-bold tracking-tight">프로젝트</h2>
         <div className="space-y-10">
@@ -157,7 +157,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Education & Awards Section */}
+      {/* 학력 및 수상경력 섹션 */}
       <section className="relative z-10 mx-auto max-w-3xl px-6 py-12">
         <h2 className="mb-8 text-2xl font-bold tracking-tight">
           학력 및 수상경력
