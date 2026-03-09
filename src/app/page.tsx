@@ -1,8 +1,14 @@
 import Image from "next/image";
 import { BackgroundGlow } from "@/components/background-glow";
+import { FloatingActions } from "@/components/floating-actions";
 import { LucideIcon } from "@/components/lucide-icon";
 import { MdxContent } from "@/components/mdx-content";
-import { getEducation, getExperiences, getProjects } from "@/lib/content";
+import {
+  getActivities,
+  getEducation,
+  getExperiences,
+  getProjects,
+} from "@/lib/content";
 
 const socialLinks = [
   {
@@ -25,6 +31,16 @@ const socialLinks = [
     icon: "Newspaper",
     label: "Velog",
   },
+  {
+    href: "https://www.acmicpc.net/user/tjgus1668",
+    icon: "Code",
+    label: "Baekjoon",
+  },
+  {
+    href: "https://atcoder.jp/users/tjgus1668",
+    icon: "Code",
+    label: "AtCoder",
+  },
   // TODO: Resume 업로드하기
   // {
   //   href: "/resume.pdf",
@@ -34,9 +50,17 @@ const socialLinks = [
 ] as const;
 
 export default function Home() {
+  const buildTime = new Date();
+  const buildTimeDateString = buildTime.toLocaleDateString("ko-KR", {
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+  });
+
   const experiences = getExperiences();
   const projects = getProjects();
   const educationAndAwards = getEducation();
+  const activities = getActivities();
 
   return (
     <div className="relative min-h-screen bg-background text-foreground">
@@ -176,15 +200,35 @@ export default function Home() {
               </span>
               <div>
                 <h3 className="text-lg font-semibold">{item.data.title}</h3>
-                <p className="text-base text-foreground/50">
-                  {item.data.detail}
-                </p>
                 {item.content && <MdxContent source={item.content} />}
               </div>
             </div>
           ))}
         </div>
       </section>
+
+      {/* 활동 섹션 */}
+      <section className="relative z-10 mx-auto max-w-3xl px-6 py-12">
+        <h2 className="mb-8 text-2xl font-bold tracking-tight">활동</h2>
+        <div className="space-y-8">
+          {activities.map((item) => (
+            <div
+              key={item.data.title}
+              className="grid gap-1 sm:grid-cols-[180px_1fr]"
+            >
+              <span className="text-base text-foreground/40">
+                {item.data.period}
+              </span>
+              <div>
+                <h3 className="text-lg font-semibold">{item.data.title}</h3>
+                {item.content && <MdxContent source={item.content} />}
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <FloatingActions label={`마지막 수정 날짜: ${buildTimeDateString}`} />
     </div>
   );
 }
