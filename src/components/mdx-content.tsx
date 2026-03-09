@@ -1,8 +1,11 @@
 import { MDXRemote } from "next-mdx-remote/rsc";
+import { ImagePreview } from "./image-preview";
 import { LucideIcon, type LucideIconType } from "./lucide-icon";
 
 function Meta({ children }: { children: React.ReactNode }) {
-  return <div className="flex items-center gap-3 not-prose">{children}</div>;
+  return (
+    <div className="flex items-center gap-3 not-prose p-1">{children}</div>
+  );
 }
 
 function Stat({ icon, count }: { icon: LucideIconType; count: string }) {
@@ -40,6 +43,7 @@ const mdxComponents = {
   Meta,
   Stat,
   IconLink,
+  ImagePreview,
 };
 
 export function MdxContent({ source }: { source: string }) {
