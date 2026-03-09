@@ -10,15 +10,18 @@ function readMdxFiles<T>(
   const fullPath = path.join(contentDir, dir);
   if (!fs.existsSync(fullPath)) return [];
 
-  return fs
-    .readdirSync(fullPath)
-    .filter((f) => f.endsWith(".mdx"))
-    .map((file) => {
-      const raw = fs.readFileSync(path.join(fullPath, file), "utf-8");
-      const { data, content } = matter(raw);
-      return { data: data as T, content: content.trim(), filename: file };
-    })
-    .sort((a, b) => a.filename.localeCompare(b.filename));
+  return (
+    fs
+      .readdirSync(fullPath)
+      .filter((f) => f.endsWith(".mdx"))
+      .map((file) => {
+        const raw = fs.readFileSync(path.join(fullPath, file), "utf-8");
+        const { data, content } = matter(raw);
+        return { data: data as T, content: content.trim(), filename: file };
+      })
+      // 번호가 큰 파일이 상단에 위치한다
+      .sort((a, b) => b.filename.localeCompare(a.filename))
+  );
 }
 
 export interface Experience {
