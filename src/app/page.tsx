@@ -2,14 +2,42 @@ import Image from "next/image";
 import { BackgroundGlow } from "@/components/background-glow";
 import { LucideIcon } from "@/components/lucide-icon";
 import { MdxContent } from "@/components/mdx-content";
-import {
-  educationAndAwards,
-  experiences,
-  projects,
-  socialLinks,
-} from "@/data/portfolio";
+import { getEducation, getExperiences, getProjects } from "@/lib/content";
+
+const socialLinks = [
+  {
+    href: "mailto:csh1668@gmail.com",
+    icon: "Mail",
+    label: "Email",
+  },
+  {
+    href: "https://github.com/csh1668",
+    icon: "Github",
+    label: "GitHub",
+  },
+  {
+    href: "https://linkedin.com/in/seohyeon-cho",
+    icon: "Linkedin",
+    label: "LinkedIn",
+  },
+  {
+    href: "https://velog.io/@tjgus1668/posts",
+    icon: "Newspaper",
+    label: "Velog",
+  },
+  // TODO: Resume 업로드하기
+  // {
+  //   href: "/resume.pdf",
+  //   icon: "FileText",
+  //   label: "Resume",
+  // },
+] as const;
 
 export default function Home() {
+  const experiences = getExperiences();
+  const projects = getProjects();
+  const educationAndAwards = getEducation();
+
   return (
     <div className="relative min-h-screen bg-background text-foreground">
       <BackgroundGlow />
@@ -92,14 +120,16 @@ export default function Home() {
         <div className="space-y-10">
           {experiences.map((exp) => (
             <div
-              key={exp.company}
+              key={exp.data.company}
               className="grid gap-1 sm:grid-cols-[180px_1fr]"
             >
-              <span className="text-base text-foreground/40">{exp.period}</span>
+              <span className="text-base text-foreground/40">
+                {exp.data.period}
+              </span>
               <div>
-                <h3 className="text-lg font-semibold">{exp.company}</h3>
-                <p className="text-base text-foreground/60">{exp.role}</p>
-                <MdxContent source={exp.description} />
+                <h3 className="text-lg font-semibold">{exp.data.company}</h3>
+                <p className="text-base text-foreground/60">{exp.data.role}</p>
+                {exp.content && <MdxContent source={exp.content} />}
               </div>
             </div>
           ))}
@@ -112,43 +142,18 @@ export default function Home() {
         <div className="space-y-10">
           {projects.map((proj) => (
             <div
-              key={proj.title}
+              key={proj.data.title}
               className="grid gap-1 sm:grid-cols-[180px_1fr]"
             >
               <span className="text-base text-foreground/40">
-                {proj.period}
+                {proj.data.period}
               </span>
               <div>
-                <div className="flex items-center gap-3">
-                  <h3 className="text-lg font-semibold">{proj.title}</h3>
-                  {proj.links?.map((link) => (
-                    <a
-                      key={link.label}
-                      href={link.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      title={link.label}
-                      className="text-foreground/40 transition-colors hover:text-foreground/70"
-                    >
-                      <LucideIcon name={link.icon} className="h-4 w-4" />
-                    </a>
-                  ))}
-                </div>
-                <div className="mt-1 flex items-center gap-3">
-                  <span className="text-base text-foreground/40">
-                    {proj.tech}
-                  </span>
-                  {proj.stats && (
-                    <span className="flex items-center gap-1 text-base text-foreground/40">
-                      <LucideIcon
-                        name={proj.stats.type === "stars" ? "Star" : "Download"}
-                        className="h-4 w-4"
-                      />
-                      {proj.stats.count.toLocaleString()}
-                    </span>
-                  )}
-                </div>
-                <MdxContent source={proj.description} />
+                <h3 className="text-lg font-semibold">{proj.data.title}</h3>
+                <span className="text-base text-foreground/40">
+                  {proj.data.tech}
+                </span>
+                {proj.content && <MdxContent source={proj.content} />}
               </div>
             </div>
           ))}
@@ -163,15 +168,18 @@ export default function Home() {
         <div className="space-y-8">
           {educationAndAwards.map((item) => (
             <div
-              key={item.title}
+              key={item.data.title}
               className="grid gap-1 sm:grid-cols-[180px_1fr]"
             >
               <span className="text-base text-foreground/40">
-                {item.period}
+                {item.data.period}
               </span>
               <div>
-                <h3 className="text-lg font-semibold">{item.title}</h3>
-                <p className="text-base text-foreground/50">{item.detail}</p>
+                <h3 className="text-lg font-semibold">{item.data.title}</h3>
+                <p className="text-base text-foreground/50">
+                  {item.data.detail}
+                </p>
+                {item.content && <MdxContent source={item.content} />}
               </div>
             </div>
           ))}

@@ -1,8 +1,10 @@
 import { icons } from "lucide-react";
 import type { HTMLAttributes } from "react";
 
+export type LucideIconType = keyof typeof icons;
+
 export interface LucideIconProps extends HTMLAttributes<HTMLOrSVGElement> {
-  name: keyof typeof icons;
+  name: LucideIconType;
   size?: number;
 }
 
