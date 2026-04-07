@@ -5,10 +5,12 @@ import { LucideIcon } from "./lucide-icon";
 
 export function FloatingActions({ label }: { label: string }) {
   const [showScrollTop, setShowScrollTop] = useState(false);
+  const [showLabel, setShowLabel] = useState(true);
 
   useEffect(() => {
     const handleScroll = () => {
       setShowScrollTop(window.scrollY > 200);
+      setShowLabel(window.scrollY < 300);
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
@@ -30,9 +32,11 @@ export function FloatingActions({ label }: { label: string }) {
           <LucideIcon name="ArrowUp" className="h-5 w-5 text-foreground/60" />
         </button>
       )}
-      <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-foreground/40 backdrop-blur-sm">
-        {label}
-      </span>
+      {showLabel && (
+        <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-foreground/40 backdrop-blur-sm">
+          {label}
+        </span>
+      )}
     </div>
   );
 }

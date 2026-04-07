@@ -22,6 +22,14 @@ const suite = localFont({
 export const metadata: Metadata = {
   title: "조서현 포트폴리오",
   description: "풀스택 개발자 조서현의 포트폴리오입니다.",
+  openGraph: {
+    title: "조서현 포트폴리오",
+    description: "풀스택 개발자 조서현의 포트폴리오입니다.",
+    url: "https://csh1668.github.io",
+    siteName: "조서현 포트폴리오",
+    locale: "ko_KR",
+    type: "website",
+  },
 };
 
 export default function RootLayout({
