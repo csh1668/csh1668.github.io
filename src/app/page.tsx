@@ -56,6 +56,7 @@ export default function Home() {
     month: "2-digit",
     day: "2-digit",
   });
+  const sectionClassName = "relative z-10 mx-auto max-w-5xl px-6 py-12";
 
   const experiences = getExperiences();
   const projects = getProjects();
@@ -139,7 +140,7 @@ export default function Home() {
       </section>
 
       {/* 경험 섹션 */}
-      <section className="relative z-10 mx-auto max-w-3xl px-6 py-12">
+      <section className={sectionClassName}>
         <h2 className="mb-8 text-2xl font-bold tracking-tight">경험</h2>
         <div className="space-y-10">
           {experiences.map((exp) => (
@@ -161,7 +162,7 @@ export default function Home() {
       </section>
 
       {/* 프로젝트 섹션 */}
-      <section className="relative z-10 mx-auto max-w-3xl px-6 py-12">
+      <section className={sectionClassName}>
         <h2 className="mb-8 text-2xl font-bold tracking-tight">프로젝트</h2>
         <div className="space-y-10">
           {projects.map((proj) => (
@@ -185,7 +186,7 @@ export default function Home() {
       </section>
 
       {/* 학력 및 수상경력 섹션 */}
-      <section className="relative z-10 mx-auto max-w-3xl px-6 py-12">
+      <section className={sectionClassName}>
         <h2 className="mb-8 text-2xl font-bold tracking-tight">
           학력 및 수상경력
         </h2>
@@ -208,7 +209,7 @@ export default function Home() {
       </section>
 
       {/* 활동 섹션 */}
-      <section className="relative z-10 mx-auto max-w-3xl px-6 py-12">
+      <section className={sectionClassName}>
         <h2 className="mb-8 text-2xl font-bold tracking-tight">활동</h2>
         <div className="space-y-8">
           {activities.map((item) => (
